@@ -17,7 +17,8 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:var(--fb);font-size:16px;line-height:1.65;background:var(--bg);color:var(--text);overflow-x:hidden;cursor:none;}
+body{font-family:var(--fb);font-size:16px;line-height:1.65;background:var(--bg);color:var(--text);overflow-x:hidden;cursor:auto;}
+a,button,[role="button"]{cursor:pointer;}
 a{text-decoration:none;color:inherit;}
 ul{list-style:none;}
 
@@ -63,7 +64,7 @@ nav.scrolled{background:rgba(11,12,16,.94);backdrop-filter:blur(18px);border-bot
 .hero-name{font-family:var(--fd);font-size:clamp(2.8rem,5.5vw,5.5rem);font-weight:700;line-height:1;letter-spacing:-2px;margin-bottom:18px;white-space:nowrap;opacity:0;animation:fadeUp .8s .4s forwards;}
 .hero-name .outline{-webkit-text-stroke:1px rgba(255,255,255,.22);color:transparent;}
 .hero-name .accent{color:var(--glow);}
-.hero-sub{font-size:17.5px;color:var(--muted);max-width:465px;line-height:1.85;margin-bottom:36px;opacity:0;animation:fadeUp .8s .6s forwards;}
+.hero-sub{font-size:16.5px;color:var(--muted);max-width:440px;line-height:1.85;margin-bottom:36px;opacity:0;animation:fadeUp .8s .6s forwards;}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .8s forwards;}
 .btn-primary{padding:12px 28px;background:var(--grad);color:#fff;font-family:var(--fb);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;transition:opacity .3s,transform .3s;box-shadow:0 6px 28px rgba(232,100,44,.32);}
 .btn-primary:hover{opacity:.85;transform:translateY(-2px);}
@@ -114,7 +115,7 @@ body.js-ready .reveal.visible{opacity:1 !important;transform:translateY(0) !impo
 .about-closing{font-family:var(--fd);font-size:1.45rem;font-weight:600;font-style:italic;color:rgba(232,100,44,.85);margin-top:14px;padding-top:14px;border-top:1px solid var(--border);line-height:1.4;}
 .about-interests-title{font-size:9.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--glow);margin-bottom:10px;margin-top:18px;}
 .about-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:0;width:100%;}
-.chip{padding:6px 14px;border:1px solid var(--border);border-radius:100px;font-size:14px;font-weight:500;color:var(--muted);transition:all .3s;}
+.chip{padding:6px 14px;border:1px solid var(--border);border-radius:100px;font-size:14px;font-weight:500;color:var(--muted);transition:all .3s;cursor:default;}
 .chip:hover{border-color:var(--glow);color:var(--glow);}
 
 /* SKILLS */
@@ -136,7 +137,6 @@ body.js-ready .reveal.visible{opacity:1 !important;transform:translateY(0) !impo
 #projects{background:var(--bg2);}
 .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
 
-/* ── Fixed project card layout ── */
 .project-card{
   background:var(--surface);
   border:1px solid var(--border);
@@ -144,7 +144,7 @@ body.js-ready .reveal.visible{opacity:1 !important;transform:translateY(0) !impo
   overflow:hidden;
   transition:transform .3s,border-color .3s,box-shadow .3s;
   display:flex;
-  flex-direction:row;        /* row so text left, banner right */
+  flex-direction:row;
   min-height:200px;
   position:relative;
 }
@@ -156,8 +156,8 @@ body.js-ready .reveal.visible{opacity:1 !important;transform:translateY(0) !impo
   padding:22px 20px;
   display:flex;
   flex-direction:column;
-  flex:1;          /* take remaining width */
-  min-width:0;     /* allow text to shrink */
+  flex:1;
+  min-width:0;
 }
 .proj-num{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--glow);margin-bottom:5px;}
 .proj-name{font-size:16px;font-weight:700;color:var(--white);margin-bottom:8px;line-height:1.3;}
@@ -168,7 +168,6 @@ body.js-ready .reveal.visible{opacity:1 !important;transform:translateY(0) !impo
 .proj-link:hover{gap:10px;}
 .proj-link svg{width:11px;height:11px;flex-shrink:0;}
 
-/* Banner sidebar – fixed width, never collapses */
 .proj-banner{
   position:relative;
   overflow:hidden;
@@ -176,8 +175,8 @@ body.js-ready .reveal.visible{opacity:1 !important;transform:translateY(0) !impo
   align-items:center;
   justify-content:center;
   border-left:1px solid var(--border);
-  width:110px;   /* explicit fixed width */
-  flex-shrink:0; /* never shrink */
+  width:110px;
+  flex-shrink:0;
 }
 .proj-banner svg{position:absolute;inset:0;width:100%;height:100%;}
 .proj-banner-label{position:relative;z-index:1;font-family:var(--fd);font-size:1.1rem;font-weight:700;color:rgba(255,255,255,.06);user-select:none;writing-mode:vertical-rl;}
@@ -232,21 +231,14 @@ body.js-ready .reveal.visible{opacity:1 !important;transform:translateY(0) !impo
 .event-title{font-size:14.5px;font-weight:600;color:var(--white);line-height:1.4;margin-bottom:3px;}
 .event-detail{font-size:12.5px;color:var(--muted);}
 
-/* ══════════════════════════════════════
-   CERTIFICATIONS — Fixed & enhanced
-══════════════════════════════════════ */
+/* CERTIFICATIONS */
 .cert-col-title{font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:22px;}
 .cert-provider{margin-bottom:22px;}
 .cert-provider:last-child{margin-bottom:0;}
 .cert-provider-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
-.cert-provider-logo{width:36px;height:36px;flex-shrink:0;background:rgba(232,100,44,.1);border:1px solid rgba(232,100,44,.18);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;letter-spacing:.5px;color:var(--glow);text-align:center;line-height:1.2;text-transform:uppercase;}
 .cert-provider-name{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white);}
 .cert-provider-line{flex:1;height:1px;background:var(--border);}
-
-/* Cards lay out in a column now so each row is one card */
 .cert-cards{display:flex;flex-direction:column;gap:10px;}
-
-/* Each cert card: badge | name+meta | view-btn — all on one line */
 .cert-card{
   display:flex;
   align-items:center;
@@ -262,17 +254,13 @@ body.js-ready .reveal.visible{opacity:1 !important;transform:translateY(0) !impo
 .cert-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--grad);transform:scaleY(0);transform-origin:bottom;transition:transform .35s;}
 .cert-card:hover::before{transform:scaleY(1);}
 .cert-card:hover{border-color:rgba(232,100,44,.28);transform:translateX(3px);}
-
-/* Left: name + meta — grows to fill space */
 .cert-card-left{
   flex:1;
-  min-width:0;          /* allow text to shrink but don't wrap */
+  min-width:0;
   display:flex;
   align-items:center;
   gap:14px;
 }
-
-/* Name must NOT wrap */
 .cert-card-name{
   font-size:14px;
   font-weight:600;
@@ -282,20 +270,15 @@ body.js-ready .reveal.visible{opacity:1 !important;transform:translateY(0) !impo
   text-overflow:ellipsis;
   line-height:1;
 }
-
 .cert-card-meta{
   font-size:12px;
   color:var(--muted);
   white-space:nowrap;
   flex-shrink:0;
 }
-
-/* Separator dot between name and meta */
 .cert-card-sep{
   width:3px;height:3px;border-radius:50%;background:var(--muted);flex-shrink:0;opacity:.5;
 }
-
-/* Badge stays right-aligned, no wrap */
 .cert-badge{
   display:inline-flex;
   align-items:center;
@@ -310,8 +293,6 @@ body.js-ready .reveal.visible{opacity:1 !important;transform:translateY(0) !impo
 }
 .cert-badge.gold{background:rgba(196,154,48,.14);color:#c9a030;border:1px solid rgba(196,154,48,.3);}
 .cert-badge.silver{background:rgba(122,120,112,.1);color:var(--muted);border:1px solid var(--border);}
-
-/* VIEW CERT BUTTON */
 .cert-view-btn{
   display:inline-flex;
   align-items:center;
@@ -381,7 +362,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 60px
   .projects-grid{grid-template-columns:1fr;}
   .ach-cards-row,.events-row{flex-direction:column;}
   footer{flex-direction:column;gap:10px;text-align:center;padding:20px;}
-  /* On small screens allow cert names to wrap */
   .cert-card{flex-wrap:wrap;}
   .cert-card-name{white-space:normal;}
 }
@@ -418,9 +398,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 60px
     <div class="hero-inner">
       <div class="hero-eyebrow"></div>
       <h1 class="hero-name">Dharshini <span class="outline">V</span><span class="accent">.</span></h1>
-<p class="hero-sub">Computer Science undergraduate with a passion for creating scalable web applications, real-time systems, and intelligent data-driven solutions.</p>      <div class="hero-cta">
+      <p class="hero-sub">Computer Science undergraduate crafting scalable web applications, real-time systems, and intelligent data-driven solutions.</p>
+      <div class="hero-cta">
         <a href="#projects"><button class="btn-primary">View My Work</button></a>
         <a href="#contact"><button class="btn-outline">Get in Touch</button></a>
+        <a href="Dharshini_Resume.pdf" download="Dharshini_Resume.pdf" style="display:inline-flex;align-items:center;gap:7px;padding:10px 22px;border:1px solid rgba(232,100,44,.4);border-radius:2px;font-family:var(--fb);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--glow);transition:all .3s;background:rgba(232,100,44,.06);" onmouseover="this.style.background='rgba(232,100,44,0.14)'" onmouseout="this.style.background='rgba(232,100,44,0.06)'">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
       </div>
     </div>
     <div class="hero-graphic">
@@ -448,16 +433,16 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 60px
       <h2 class="section-title">Building things that <em>matter</em></h2>
     </div>
     <div class="about-layout" style="display:flex;flex-direction:column;width:100%;">
-        <p class="about-quote reveal">I don&rsquo;t just build applications &mdash; I create scalable digital experiences that solve real-world problems.</p>
-        <p class="about-body reveal">I&rsquo;m <strong>Dharshini V</strong>, a Computer Science Engineering student focused on <strong>Full Stack Development</strong> and <strong>intelligent systems</strong>.<br> I build high-performance web applications, real-time systems, and data-driven solutions that are both efficient and user-centric.</p>
-        <p class="about-body reveal">From crafting interactive platforms to delivering production-ready solutions, I focus on developing systems that create real-world impact.</p><br>
-        <p class="about-closing reveal">Great software is not just built &mdash; it is thoughtfully engineered.</p>
-        <div class="about-interests-title reveal">Areas of Interest</div>
-        <div class="about-chips reveal">
-          <span class="chip">Full Stack Web Development</span>
-          <span class="chip">Machine Learning &amp; Data Analytics</span>
-          <span class="chip">UI / UX Design</span>
-        </div>
+      <p class="about-quote reveal">I don&rsquo;t just build applications &mdash; I create scalable digital experiences that solve real-world problems.</p>
+      <p class="about-body reveal">I&rsquo;m <strong>Dharshini V</strong>, a Computer Science Engineering student focused on <strong>Full Stack Development</strong> and <strong>intelligent systems</strong>. <br>I build high-performance web applications, real-time systems, and data-driven solutions that are both efficient and user-centric.</p>
+      <p class="about-body reveal">From crafting interactive platforms to delivering production-ready solutions, I focus on engineering systems that create meaningful real-world impact &mdash; clean code, thoughtful architecture, and an eye for detail in every layer of the stack.</p>
+      <p class="about-closing reveal">Great software is not just built &mdash; it is thoughtfully engineered.</p>
+      <div class="about-interests-title reveal">Areas of Interest</div>
+      <div class="about-chips reveal">
+        <span class="chip">Full Stack Web Development</span>
+        <span class="chip">Machine Learning &amp; Data Analytics</span>
+        <span class="chip">UI / UX Design</span>
+      </div>
     </div>
   </div>
 </section>
@@ -824,7 +809,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 60px
     <div class="contact-inner reveal">
       <div class="section-tag">Contact</div>
       <h2 class="section-title">Let&rsquo;s <em>connect</em></h2>
-      <p class="contact-intro">Open to internships, collaborations, and exciting opportunities. Whether you have a project idea or just want to say hello &mdash; my inbox is always open.</p>
+      <p class="contact-intro">Open to internships, collaborations, and exciting opportunities. Whether you have a project idea, want to collaborate, or just want to say hello &mdash; I&rsquo;d love to hear from you.</p>
       <div class="contact-links">
         <a class="contact-link" href="https://linkedin.com/in/dharshini-v-26b156293/" target="_blank">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
@@ -842,6 +827,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 60px
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.84a16 16 0 006.29 6.29l1.21-1.25a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           +91 93456 02596
         </a>
+        <a class="contact-link" href="Dharshini_Resume.pdf" download="Dharshini_Resume.pdf" style="border-color:rgba(232,100,44,.35);color:var(--glow);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Resume
+        </a>
       </div>
       <a class="contact-email" href="mailto:dharshinivenk2006@gmail.com">dharshinivenk2006&#64;gmail.com</a>
     </div>
@@ -850,7 +839,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 60px
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-copy">&#169; 2025 <span>Dharshini V</span>. </div>
+  <div class="footer-copy">&#169; 2026 <span>Dharshini V</span>.</div>
   <div class="footer-socials">
     <a href="https://linkedin.com/in/dharshini-v-26b156293/" target="_blank">LinkedIn</a>
     <a href="https://github.com/Dharshini-cloud" target="_blank">GitHub</a>
@@ -907,10 +896,11 @@ window.addEventListener('scroll',()=>{
 const eyebrow=document.querySelector('.hero-eyebrow');
 const txt='Full Stack Developer & ML Enthusiast';
 let i=0;
-function typeWriter(){
-  if(i<txt.length){eyebrow.innerHTML+=txt.charAt(i);i++;setTimeout(typeWriter,100);}
+function type(){
+  if(i<=txt.length){eyebrow.lastChild?eyebrow.lastChild.remove():null;
+  const span=document.createTextNode(txt.slice(0,i));eyebrow.appendChild(span);i++;setTimeout(type,55);}
 }
-typeWriter();
+setTimeout(type,900);
 </script>
 </body>
 </html>
